@@ -2,19 +2,20 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Test</title>
-        <link rel="stylesheet" href="/styles/resets.css">
-        <link rel="stylesheet" href="/styles/base.css">
-        <link rel="stylesheet" href="/styles/header.css">
-        <link rel="stylesheet" href="/styles/form.css">
-        <link rel="stylesheet" href="/styles/footer.css">
+        <title>Article Evaluation</title>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="./styles/resets.scss">
+        <link rel="stylesheet" href="./styles/base.scss">
+        <link rel="stylesheet" href="./styles/header.scss">
+        <link rel="stylesheet" href="./styles/form.scss">
+        <link rel="stylesheet" href="./styles/footer.scss"> -->
     </head>
 
-    <body>
+    <body>.
 
         <header>
             <div class="">
-                Logo
+                Article Evaluation
             </div>
             <div class="">
                 navigation
@@ -23,21 +24,37 @@
 
         <main>
             <section>
-                <form class="" onsubmit="return handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return handleSubmit(event)" onsubmit="return handleSubmit(event)">
+                <form class="" onsubmit="return Client.handleSubmit(event)">
+                    <input id="name" type="text" name="input" value="" placeholder="Type an article URL here......">
+                    <input type="submit" name="" value="Start Analyzing" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
                 </form>
+                <div id="errormsg"></div>
             </section>
 
             <section>
-                <strong>Form Results:</strong>
-                <div id="results"></div>
+                <!-- view analysis result -->
+                <strong>Analysis Results:</strong>
+                <div id="results">
+                    <div id="ScoreTag"></div>
+                    <div id="confidence"></div>
+                    <div id="irony"></div>
+                    <div id="subjectivity"></div>
+                </div>
             </section>
         </main>
 
         <footer>
-            <p>This is a footer</p>
+            <p>This project made by <a href="https://github.com/rinban">Rinad Bankher</a> for <a href="https://www.udacity.com/">Udacity</a></p>
         </footer>
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+        </script>
 
     </body>
 </html>
